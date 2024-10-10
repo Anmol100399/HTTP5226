@@ -14,23 +14,20 @@ PassionProject is a car showroom management system designed to manage cars, owne
   - One-to-many relationship between owners and cars.
 
 ## Project Structure
-
-The project is structured in the following way:
-
 # Controllers/
 
 CarsAPIController.cs
 OwnerController.cs
 StaffAPIController.cs
 
-### Data/
+# Data/
  **Interface/**
 
 - ICarService.cs
 - IOwnerService.cs
 - IStaffService.cs
 
-- **Models/**
+**Models/**
 - Car.cs
 - CarDto.cs
 - Owner.cs
@@ -38,7 +35,7 @@ StaffAPIController.cs
 - Staff.cs
 - StaffDto.cs
 
-# Services/
+**Services/**
 - CarService.cs
 - OwnerService.cs
 - StaffService.cs
