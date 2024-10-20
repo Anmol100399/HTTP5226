@@ -3,6 +3,56 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to Car Show Room</h1>
+    <p class="lead">Your one-stop solution for managing cars, owners, and staff members effectively.</p>
+    <hr class="my-4" />
+    <p>Explore our features and get started today!</p>
+    <div class="button-container">
+        <a class="btn btn-secondary btn-lg" asp-controller="CarPage" asp-action="List">View Cars</a>
+        <a class="btn btn-secondary btn-lg" asp-controller="OwnerPage" asp-action="List">View Owners</a>
+        <a class="btn btn-secondary btn-lg" asp-controller="StaffPage" asp-action="List">View Staff Members</a>
+    </div>
 </div>
+
+<style>
+    .text-center {
+        padding: 50px 20px; /* Add padding for better spacing */
+        background-color: #495057; /* Darker background for the welcome section */
+        color: #f8f9fa; /* Light text color */
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow */
+    }
+
+    .display-4 {
+        color: #d9534f; /* Title color */
+        font-weight: bold;
+    }
+
+    p {
+        font-size: 2rem;
+    }
+
+    .lead {
+        font-size: 2.1rem; /* Larger text for the lead paragraph */
+        margin-bottom: 20px; /* Space below the lead text */
+    }
+
+    .button-container {
+        margin-top: 20px; /* Space above the button container */
+    }
+
+    .btn {
+        margin: 5px; /* Space between buttons */
+        transition: background-color 0.3s ease, transform 0.3s ease; /* Transition effects */
+    }
+
+    .btn-secondary {
+        background-color: #5bc0de; /* Light gray button color */
+    }
+
+        .btn-secondary:hover {
+            background-color: #95a5a6; /* Darker gray on hover */
+            transform: translateY(-2px); /* Subtle lift effect on hover */
+        }
+
+</style>

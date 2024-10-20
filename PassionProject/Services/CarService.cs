@@ -29,11 +29,11 @@ namespace PassionProject.Services
                         Model = car.Model,
                         Year = car.Year,
                         OwnerId = car.OwnerId,
-                        OwnerName = car.Owner.FirstName
+                        OwnerName = car.Owner.FirstName + " " + car.Owner.LastName
                     }).ToListAsync();
             }
 
-            public async Task<CarDto> GetCar(int id)
+            public async Task<CarDto?> GetCar(int id)
             {
                 var car = await _context.Cars
                     .Include(c => c.Owner)
@@ -48,27 +48,22 @@ namespace PassionProject.Services
                     Make = car.Make,
                     Model = car.Model,
                     Year = car.Year,
-                    OwnerId = car.OwnerId,
-                    OwnerName = car.Owner.FirstName
+                    OwnerId = car.Owner.OwnerId,
+                    OwnerName = car.Owner.FirstName + " " + car.Owner.LastName,
                 };
             }
 
-            public async Task<ServiceResponse> CreateCar(CarDto carDto)
+            public async Task<ServiceResponse?> CreateCar(CarDto carDto)
             {
             ServiceResponse serviceResponse = new();
-            var owner = await _context.Owners.FindAsync(carDto.OwnerId);
-                if (owner == null)
-                {
-                return null;
-                }
 
-                var newCar = new Car
+                Car newCar = new Car
                 {
                     Make = carDto.Make,
                     Model = carDto.Model,
                     Year = carDto.Year,
                     OwnerId = carDto.OwnerId,
-
+                    OwnerName = carDto.OwnerName
                 };
 
             _context.Cars.Add(newCar);
@@ -77,10 +72,9 @@ namespace PassionProject.Services
             serviceResponse.Status = ServiceResponse.ServiceStatus.Created;
             serviceResponse.CreatedId = newCar.CarId;
             return serviceResponse;
+        }
 
-            }
-
-        public async Task<ServiceResponse> UpdateCarDetails(int id, CarDto carDto)
+        public async Task<ServiceResponse> UpdateCar(int id, CarDto carDto)
         {
 
             ServiceResponse serviceResponse = new();
@@ -94,6 +88,7 @@ namespace PassionProject.Services
                 car.Model = carDto.Model;
                 car.Year = carDto.Year;
                 car.OwnerId = carDto.OwnerId;
+            car.OwnerName = carDto.OwnerName;
 
             _context.Entry(car).State = EntityState.Modified;
             await _context.SaveChangesAsync();
@@ -112,9 +107,9 @@ namespace PassionProject.Services
             return null;
             }
 
-        _context.Entry(car).State = EntityState.Modified;
+            _context.Cars.Remove(car);
         await _context.SaveChangesAsync();
-        serviceResponse.Status = ServiceResponse.ServiceStatus.Updated;
+        serviceResponse.Status = ServiceResponse.ServiceStatus.Deleted;
 
         return serviceResponse;
         }

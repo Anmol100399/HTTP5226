@@ -21,5 +21,9 @@ namespace PassionProject.Interface
 
         // Delete an owner by ID
         Task<ServiceResponse> DeleteOwner(int id);
+
+        // related methods
+
+        // Task<IEnumerable<OwnerDto>> ListOwnersForCar(int id);
     }
 }

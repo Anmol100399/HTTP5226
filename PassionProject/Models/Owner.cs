@@ -48,5 +48,15 @@ namespace PassionProject.Models
         /// Last name of the owner for Data Transfer Object purposes.
         /// </summary>
         public string LastName { get; set; }
+
+        /// <summary>
+        /// Contact of the owner for Data Transfer Object purposes.
+        /// </summary>
+        public string Contact { get; set; }
+        // A collection of artwork IDs associated with this artist
+        public List<int> CarId { get; set; } = new List<int>();
+
+        // Optionally, you can also include a collection of detailed ArtworkDto objects
+        public List<CarDto> Cars { get; set; } = new List<CarDto>();
     }
 }

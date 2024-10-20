@@ -14,7 +14,7 @@ namespace PassionProject.Interface
         Task<CarDto> GetCar(int id);
 
         // Update an existing car
-        Task<ServiceResponse> UpdateCarDetails(int id, CarDto carDto);
+        Task<ServiceResponse> UpdateCar(int id, CarDto carDto);
 
         // Create a new car
         Task<ServiceResponse> CreateCar(CarDto carDto);

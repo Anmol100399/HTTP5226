@@ -1,22 +1,54 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+    background-color: #343a40; /* Dark background color */
+    color: #fff; /* White text color */
+}
+
+header {
+    background-color: #495057; /* Darker gray for header */
+}
+
+.navbar {
+    border-bottom: 2px solid #d9534f; /* Red border for navbar */
+}
+
+.nav-link {
+    transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+    font-size: 1.1rem; /* Increase font size */
+    padding: 15px 20px; /* Add padding for larger clickable area */
+}
+
+    .nav-link:hover {
+        color: #d9534f; /* Change color on hover */
+        transform: scale(1.15); /* Scale up on hover */
+    }
+
+.container {
+    margin-top: 20px; /* Top margin for the container */
+}
+
+h1, h2 {
+    color: #d9534f; /* Title color */
+    text-align: center; /* Center headings */
+}
+
+.form-control {
+    background-color: #6c757d; /* Light gray for input fields */
+    color: #fff; /* White text color */
+}
+
+.btn-primary {
+    background-color: #d9534f; /* Red button background */
+    border: none; /* No border */
+}
+
+    .btn-primary:hover {
+        background-color: #c9302c; /* Darker red on hover */
+    }
+
+.text-danger {
+    font-size: 0.9rem; /* Slightly smaller font size for error messages */
+}
+
+.box-shadow {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow */
 }

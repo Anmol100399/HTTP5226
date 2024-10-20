@@ -21,5 +21,13 @@ namespace PassionProject.Interface
 
         // Delete a staff member by ID
         Task<ServiceResponse> DeleteStaff(int id);
+
+        // related methods
+
+
+        //Task<IEnumerable<StaffDto>> ListStaffsForCar(int id);
+        // Task<ServiceResponse> ListStaffsForCar(int categoryId, int productId);
+
+        // Task<ServiceResponse> UnlinkStaffsForCar(int categoryId, int productId);
     }
 }

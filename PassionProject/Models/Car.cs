@@ -30,6 +30,14 @@ namespace PassionProject.Models
         /// </summary>
         public int OwnerId { get; set; }
 
+
+
+        /// <summary>
+        /// Name of the car's owner for Data Transfer Object purposes.
+        /// </summary>
+        public string OwnerName { get; set; }
+
+
         /// <summary>
         /// Navigation property to the Owner entity.
         /// </summary>
@@ -72,5 +80,6 @@ namespace PassionProject.Models
         /// Name of the car's owner for Data Transfer Object purposes.
         /// </summary>
         public string OwnerName { get; set; }
+
     }
 }

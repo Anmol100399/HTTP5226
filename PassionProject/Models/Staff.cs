@@ -54,8 +54,21 @@ namespace PassionProject.Models
         public string LastName { get; set; }
 
         /// <summary>
+        /// Position of the staff member for Data Transfer Object purposes.
+        /// </summary>
+        public string Position { get; set; }
+        /// <summary>
+        /// Contact of the staff member for Data Transfer Object purposes.
+        /// </summary>
+        
+        public string Contact { get; set; }
+
+        /// <summary>
         /// List of cars that the staff member manages for Data Transfer Object purposes.
         /// </summary>
+        /// 
+        public int CarId { get; set; }
+
         public List<CarDto> Cars { get; set; }
     }
 }

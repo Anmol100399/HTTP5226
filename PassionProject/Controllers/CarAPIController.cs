@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using PassionProject.Interface;
 using PassionProject.Models;
 
-namespace CarShowcase.Controllers
+namespace PassionProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -82,7 +82,7 @@ namespace CarShowcase.Controllers
         [HttpPut(template: "Update/{id}")]
         public async Task<ServiceResponse> UpdateCarDetails(int id, CarDto carDto)
         {
-            return await _carService.UpdateCarDetails(id, carDto);
+            return await _carService.UpdateCar(id, carDto);
         }
 
         /// <summary>
@@ -101,5 +101,24 @@ namespace CarShowcase.Controllers
         {
             return await _carService.DeleteCar(id);
         }
+
+        /// <summary>
+        /// Returns a list of cars for a specific staff by its {id}
+        /// </summary>
+        /// <returns>
+        /// 200 OK
+        /// [{CarDto},{CarDto},..]
+        /// </returns>
+        /// <example>
+        /// GET: api/Product/ListForStaff/3 -> [{CarDto},{CarDto},..]
+        /// </example>
+        //[HttpGet(template: "ListForStaff/{id}")]
+        //public async Task<IActionResult> ListCarsForStaff(int id)
+        //{
+        //    // empty list of data transfer object CarDto
+        //    //IEnumerable<CarDto> CarDtos = await _carService.ListCarsForStaff(id);
+        //    // return 200 OK with StaffDtos
+        //    return Ok(CarDtos);
+        //}
     }
 }
