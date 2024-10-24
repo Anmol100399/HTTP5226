@@ -101,24 +101,5 @@ namespace PassionProject.Controllers
         {
             return await _carService.DeleteCar(id);
         }
-
-        /// <summary>
-        /// Returns a list of cars for a specific staff by its {id}
-        /// </summary>
-        /// <returns>
-        /// 200 OK
-        /// [{CarDto},{CarDto},..]
-        /// </returns>
-        /// <example>
-        /// GET: api/Product/ListForStaff/3 -> [{CarDto},{CarDto},..]
-        /// </example>
-        //[HttpGet(template: "ListForStaff/{id}")]
-        //public async Task<IActionResult> ListCarsForStaff(int id)
-        //{
-        //    // empty list of data transfer object CarDto
-        //    //IEnumerable<CarDto> CarDtos = await _carService.ListCarsForStaff(id);
-        //    // return 200 OK with StaffDtos
-        //    return Ok(CarDtos);
-        //}
     }
 }

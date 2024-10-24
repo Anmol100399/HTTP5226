@@ -20,7 +20,16 @@ namespace PassionProject.Controllers
             _context = context;
         }
 
-        // GET StaffPage/List
+        /// <summary>
+        /// Retrieves a list of staff members.
+        /// </summary>
+        /// <returns>
+        /// 200 OK
+        /// [{StaffDto}, {StaffDto}, ...]
+        /// </returns>
+        /// <example>
+        /// GET StaffPage/List -> [{StaffDto}, {StaffDto}, ...]
+        /// </example>
         [HttpGet]
         public async Task<IActionResult> List()
         {
@@ -28,7 +37,17 @@ namespace PassionProject.Controllers
             return View(staffDtos);
         }
 
-        // GET StaffPage/Details/{id}
+        /// <summary>
+        /// Retrieves details of a specific staff member by ID.
+        /// </summary>
+        /// <param name="id">The ID of the staff member.</param>
+        /// <returns>
+        /// 200 OK
+        /// {StaffDto}
+        /// </returns>
+        /// <example>
+        /// GET StaffPage/Details/{id} -> {StaffDto}
+        /// </example>
         [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
@@ -36,20 +55,35 @@ namespace PassionProject.Controllers
             return View(staffDto);
         }
 
-        // GET StaffPage/New
+        /// <summary>
+        /// Loads the form to create a new staff member.
+        /// </summary>
+        /// <returns>
+        /// 200 OK
+        /// {StaffDto with Cars}
+        /// </returns>
+        /// <example>
+        /// GET StaffPage/New -> {StaffDto}
+        /// </example>
         public async Task<ActionResult> New()
         {
             var staffDto = new StaffDto();
-
-            // Fetch available cars for selection
             var cars = await _carService.ListCars();
-            staffDto.Cars = cars.ToList();  // Pass the list of available cars to the view
-
-            // Return the "new.cshtml" view
+            staffDto.Cars = cars.ToList();
             return View("new", staffDto);
         }
 
-        // POST StaffPage/Create
+        /// <summary>
+        /// Creates a new staff member.
+        /// </summary>
+        /// <param name="staffDto">The data transfer object containing staff details.</param>
+        /// <returns>
+        /// 201 Created
+        /// Redirect to List
+        /// </returns>
+        /// <example>
+        /// POST StaffPage/Create -> Redirect to List
+        /// </example>
         [HttpPost]
         public async Task<IActionResult> Create(StaffDto staffDto)
         {
@@ -65,7 +99,17 @@ namespace PassionProject.Controllers
             }
         }
 
-        // GET StaffPage/Edit/{id}
+        /// <summary>
+        /// Retrieves details for editing a specific staff member by ID.
+        /// </summary>
+        /// <param name="id">The ID of the staff member.</param>
+        /// <returns>
+        /// 200 OK
+        /// {StaffDto}
+        /// </returns>
+        /// <example>
+        /// GET StaffPage/Edit/{id} -> {StaffDto}
+        /// </example>
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
@@ -77,7 +121,18 @@ namespace PassionProject.Controllers
             return View(staffDto);
         }
 
-        // POST: Staff/Edit/5
+        /// <summary>
+        /// Updates the details of a specific staff member by ID.
+        /// </summary>
+        /// <param name="id">The ID of the staff member.</param>
+        /// <param name="staffDto">The updated data transfer object containing staff details.</param>
+        /// <returns>
+        /// 200 OK
+        /// Redirect to List
+        /// </returns>
+        /// <example>
+        /// POST StaffPage/Edit/{id} -> Redirect to List
+        /// </example>
         [HttpPost]
         public async Task<IActionResult> Edit(int id, StaffDto staffDto)
         {
@@ -90,7 +145,7 @@ namespace PassionProject.Controllers
 
             if (response.Status == ServiceResponse.ServiceStatus.Updated)
             {
-                return RedirectToAction("List"); 
+                return RedirectToAction("List");
             }
             else
             {
@@ -99,10 +154,19 @@ namespace PassionProject.Controllers
 
             return View(staffDto);
         }
-    
 
-    // GET StaffPage/Delete/{id}
-    [HttpGet]
+        /// <summary>
+        /// Retrieves a staff member for deletion confirmation by ID.
+        /// </summary>
+        /// <param name="id">The ID of the staff member.</param>
+        /// <returns>
+        /// 200 OK
+        /// {StaffDto}
+        /// </returns>
+        /// <example>
+        /// GET StaffPage/Delete/{id} -> {StaffDto}
+        /// </example>
+        [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             StaffDto? staffDto = await _staffService.GetStaff(id);
@@ -113,7 +177,17 @@ namespace PassionProject.Controllers
             return View(staffDto);
         }
 
-        // POST StaffPage/DeleteConfirmed/{id}
+        /// <summary>
+        /// Confirms and deletes a specific staff member by ID.
+        /// </summary>
+        /// <param name="id">The ID of the staff member.</param>
+        /// <returns>
+        /// 200 OK
+        /// Redirect to List
+        /// </returns>
+        /// <example>
+        /// POST StaffPage/DeleteConfirmed/{id} -> Redirect to List
+        /// </example>
         [HttpPost]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {

@@ -1,123 +1,130 @@
-﻿@model IEnumerable<PassionProject.Models.CarDto>
+﻿@model PassionProject.Models.CarDto
 
 @{
-    ViewData["Title"] = "Cars List";
+    ViewData["Title"] = "Updating Car Details";
 }
 
 <div class="container">
-    <h1 class="my-4 text-center title-glow">Cars List</h1>
+    <h1>@ViewData["Title"]</h1>
 
-    <div class="row">
-        @if (Model.Any())
-        {
-            foreach (var car in Model)
-            {
-                <div class="col-md-4 mb-4">
-                    <div class="card card-hover shadow-sm border-light">
-                        <div class="card-body">
-                            <h5 class="card-title">@Html.DisplayFor(modelItem => car.Make) @Html.DisplayFor(modelItem => car.Model)</h5>
-                            <h6 class="card-subtitle mb-2">@Html.DisplayFor(modelItem => car.Year)</h6>
-                            <p class="card-text">Owner: <strong>@Html.DisplayFor(modelItem => car.OwnerName)</strong></p>
-                            <div class="d-flex justify-content-between">
-                                <a asp-action="Edit" asp-route-id="@car.CarId" class="btn btn-edit">Edit</a>
-                                <a asp-action="Details" asp-route-id="@car.CarId" class="btn btn-details">Details</a>
-                                <a asp-action="Delete" asp-route-id="@car.CarId" class="btn btn-delete">Delete</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            }
-        }
-        else
-        {
-            <div class="col-12">
-                <div class="alert alert-info text-center">No cars available.</div>
-            </div>
-        }
-    </div>
+    <form asp-action="Edit" method="post">
+        <div class="form-group">
+            <label asp-for="CarId" class="control-label"></label>
+            <input asp-for="CarId" class="form-control" />
+            <span asp-validation-for="CarId" class="text-danger"></span>
+        </div>
 
-    <div class="text-center mb-3">
-        <a asp-action="New" asp-route-id="New" class="btn btn-add btn-lg">Add New Car</a>
+        <div class="form-group">
+            <label asp-for="Make" class="control-label"></label>
+            <input asp-for="Make" class="form-control" />
+            <span asp-validation-for="Make" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Model" class="control-label"></label>
+            <input asp-for="Model" class="form-control" />
+            <span asp-validation-for="Model" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Year" class="control-label"></label>
+            <input asp-for="Year" class="form-control" />
+            <span asp-validation-for="Year" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="OwnerId" class="control-label"></label>
+            <input asp-for="OwnerId" class="form-control" />
+            <span asp-validation-for="OwnerId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="OwnerName" class="control-label"></label>
+            <input asp-for="OwnerName" class="form-control" />
+            <span asp-validation-for="OwnerName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+    <div class="mt-3">
+        <a asp-action="List" class="btn btn-secondary">Back to List</a>
     </div>
 </div>
 
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
 <style>
     body {
-        background-color: #343a40; /* Dark background for the entire page */
+        background-color: #343a40;
+        color: #f8f9fa;
+        font-family: Arial, sans-serif;
     }
 
-    .title-glow {
-        font-size: 4rem; /* Increased font size for the title */
-        font-weight: bold; /* Make the title bold */
-        color: #ffffff; /* White color for the title */
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6); /* Glow effect */
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #495057;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
-    .card-hover {
-        transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-        background-color: #f8f9fa; /* Light gray background color for the card */
-        color: #333333; /* Dark text color */
-        border: 1px solid #e0e0e0; /* Light gray border for the card */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for the card */
+    h1 {
+        text-align: center;
+        color: #d9534f;
+        margin-bottom: 20px;
     }
 
-        .card-hover:hover {
-            transform: scale(1.05);
-            z-index: 1;
-            background-color: #e9ecef; /* Slightly darker background color on hover */
-            color: #333333; /* Keep text color dark on hover */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .control-label {
+        color: #f8f9fa;
+    }
+
+    .form-control {
+        background-color: #6c757d;
+        color: #fff;
+        border: 1px solid #ced4da;
+    }
+
+        .form-control:focus {
+            background-color: #495057;
+            border-color: #d9534f;
         }
+
+    .text-danger {
+        font-size: 0.9rem;
+    }
 
     .btn {
-        color: #fff; /* White text color for buttons */
-        border: none; /* Remove border */
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        text-decoration: none;
         transition: background-color 0.3s ease, transform 0.3s ease;
-        opacity: 0.99; /* Slight transparency */
     }
 
-        .btn:hover {
-            opacity: 1; /* Full opacity on hover */
+    .btn-primary {
+        background-color: #28a745;
+    }
+
+        .btn-primary:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
         }
 
-    .btn-edit {
-        background-color: rgba(0, 123, 255, 0.7); /* Light blue for Edit button */
+    .btn-secondary {
+        background-color: #bdc3c7;
     }
 
-        .btn-edit:hover {
-            background-color: rgba(0, 86, 179, 0.9); /* Darker blue on hover */
-            transform: translateY(-2px); /* Subtle lift effect on hover */
+        .btn-secondary:hover {
+            background-color: #95a5a6;
+            transform: translateY(-2px);
         }
-
-    .btn-details {
-        background-color: rgba(40, 167, 69, 0.7); /* Light green for Details button */
-    }
-
-        .btn-details:hover {
-            background-color: rgba(34, 139, 56, 0.9); /* Darker green on hover */
-            transform: translateY(-2px); /* Subtle lift effect on hover */
-        }
-
-    .btn-delete {
-        background-color: rgba(220, 53, 69, 0.7); /* Light red for Delete button */
-    }
-
-        .btn-delete:hover {
-            background-color: rgba(200, 35, 51, 0.9); /* Darker red on hover */
-            transform: translateY(-2px); /* Subtle lift effect on hover */
-        }
-
-    .btn-add {
-        background-color: rgba(23, 162, 184, 0.7); /* Light teal for Add button */
-    }
-
-        .btn-add:hover {
-            background-color: rgba(19, 132, 150, 0.9); /* Darker teal on hover */
-            transform: translateY(-2px); /* Subtle lift effect on hover */
-        }
-
-    .alert-info {
-        background-color: #495057; /* Darker background for alerts */
-        color: #ffffff; /* White text for alerts */
-    }
 </style>

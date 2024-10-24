@@ -11,37 +11,37 @@
         <div class="form-group">
             <label asp-for="CarId" class="control-label"></label>
             <input asp-for="CarId" class="form-control" />
-            <span asp-validation-for="CarId" class="text-danger"></span> <!-- Error message -->
+            <span asp-validation-for="CarId" class="text-danger"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="Make" class="control-label"></label>
             <input asp-for="Make" class="form-control" />
-            <span asp-validation-for="Make" class="text-danger"></span> <!-- Error message -->
+            <span asp-validation-for="Make" class="text-danger"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="Model" class="control-label"></label>
             <input asp-for="Model" class="form-control" />
-            <span asp-validation-for="Model" class="text-danger"></span> <!-- Error message -->
+            <span asp-validation-for="Model" class="text-danger"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="Year" class="control-label"></label>
             <input asp-for="Year" class="form-control" />
-            <span asp-validation-for="Year" class="text-danger"></span> <!-- Error message -->
+            <span asp-validation-for="Year" class="text-danger"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="OwnerId" class="control-label"></label>
             <input asp-for="OwnerId" class="form-control" />
-            <span asp-validation-for="OwnerId" class="text-danger"></span> <!-- Error message -->
+            <span asp-validation-for="OwnerId" class="text-danger"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="OwnerName" class="control-label"></label>
             <input asp-for="OwnerName" class="form-control" />
-            <span asp-validation-for="OwnerName" class="text-danger"></span> <!-- Error message -->
+            <span asp-validation-for="OwnerName" class="text-danger"></span>
         </div>
 
         <div class="form-group">
@@ -58,74 +58,73 @@
 }
 
 <style>
-        body {
-        background-color: #343a40; /* Dark background for the entire page */
-        color: #f8f9fa; /* Light text color */
-        font-family: Arial, sans-serif; /* Font style */
+    body {
+        background-color: #343a40;
+        color: #f8f9fa;
+        font-family: Arial, sans-serif;
     }
 
     .container {
-        max-width: 600px; /* Maximum width for the container */
-        margin: 50px auto; /* Centering the container */
-        padding: 20px; /* Padding inside the container */
-        background-color: #495057; /* Darker gray for the container */
-        border-radius: 8px; /* Rounded corners */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow */
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #495057;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
     h1 {
-        text-align: center; /* Center the heading */
-        color: #d9534f; /* Title color */
-        margin-bottom: 20px; /* Space below title */
+        text-align: center;
+        color: #d9534f;
+        margin-bottom: 20px;
     }
 
     .form-group {
-        margin-bottom: 15px; /* Space between form groups */
+        margin-bottom: 15px;
     }
 
     .control-label {
-        color: #f8f9fa; /* Light text color for labels */
+        color: #f8f9fa;
     }
 
     .form-control {
-        background-color: #6c757d; /* Light gray for input fields */
-        color: #fff; /* White text color */
-        border: 1px solid #ced4da; /* Border for input fields */
+        background-color: #6c757d;
+        color: #fff;
+        border: 1px solid #ced4da;
     }
 
-    .form-control:focus {
-        background-color: #495057; /* Darker background on focus */
-        border-color: #d9534f; /* Highlight border color on focus */
-    }
+        .form-control:focus {
+            background-color: #495057;
+            border-color: #d9534f;
+        }
 
     .text-danger {
-        font-size: 0.9rem; /* Slightly smaller font size for error messages */
+        font-size: 0.9rem;
     }
 
     .btn {
-        width: 100%; /* Full width buttons */
-        padding: 10px; /* Padding for buttons */
-        border-radius: 5px; /* Rounded corners for buttons */
-        text-decoration: none; /* Remove underline from links */
-        transition: background-color 0.3s ease, transform 0.3s ease; /* Transition effects */
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     .btn-primary {
-        background-color: #28a745; /* Green for Create button */
+        background-color: #28a745;
     }
 
-    .btn-primary:hover {
-        background-color: #218838; /* Darker green on hover */
-        transform: translateY(-2px); /* Subtle lift effect on hover */
-    }
+        .btn-primary:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
 
     .btn-secondary {
-        background-color: #bdc3c7; /* Light gray for back button */
+        background-color: #bdc3c7;
     }
 
-    .btn-secondary:hover {
-        background-color: #95a5a6; /* Darker gray on hover */
-        transform: translateY(-2px); /* Subtle lift effect on hover */
-    }
-
+        .btn-secondary:hover {
+            background-color: #95a5a6;
+            transform: translateY(-2px);
+        }
 </style>
